@@ -43,18 +43,13 @@
 
   /* Animações */
   --animation-glow: neon-glow 1.5s ease-in-out infinite alternate;
-  --animation-fade-in: fadeIn 0.5s ease-out;
-  --animation-fade-out: fadeOut 0.5s ease-in;
-
-  /* Cores do tema claro */
-  --color-primary-light: #6a11cb;
-  --color-secondary-light: #2575fc;
-  --color-background-light: #b0bbc7;
-  --color-text-light: #343a40;
-  --color-card-bg-light: #ffffff;
-  --color-hover-light: #8e44ad;
-  --color-accent-light: #3498db;
-  --color-active-light: #e74c3c;
+  --animation-fade-in: fadeIn 1s ease-out;
+  --animation-fade-out: fadeOut 0.2s ease-in;
+  --animation-pulse-01: pulse01 2s infinite;
+  --animation-pulse-02: pulse02 2s infinite;
+  --animation-float: float 3s ease-in-out infinite;
+  --animation-rotate: rotate 10s linear infinite;
+  --animation-shake: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
 
 /* ===================
@@ -122,6 +117,7 @@ code {
   backdrop-filter: blur(12px);
   padding: 1.5em;
   transition: var(--transition-fast);
+  animation: var(--animation-fade-in);
 }
 
 /* ===================
@@ -143,6 +139,7 @@ code {
 
 .theme-toggle:hover {
   transform: scale(1.1);
+  animation: var(--animation-shake);
 }
 
 .theme-toggle:active {
@@ -181,6 +178,7 @@ code {
   border-bottom: 3px solid var(--color-primary);
   border-radius: 0 0 10px 10px;
   transition: var(--transition-fast);
+  animation: var(--animation-fade-in);
 }
 
 .form-todo p {
@@ -192,6 +190,7 @@ code {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 0 0 5px var(--color-accent);
+  animation: var(--animation-pulse-02);
 }
 
 .form-control {
@@ -222,6 +221,7 @@ code {
 .form-control input:focus {
   outline: none;
   box-shadow: 0 0 15px var(--color-primary);
+  animation: var(--animation-pulse-01);
 }
 
 .form-control input:focus + label {
@@ -253,6 +253,7 @@ input[type='submit'] {
 input[type='submit']:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: var(--shadow-hover);
+  animation: var(--animation-pulse-02);
 }
 
 input[type='submit']:active {
@@ -276,6 +277,7 @@ input[type='submit']::before {
 input[type='submit']:hover::before {
   opacity: 1;
   transform: translate(25%, 25%) rotate(45deg);
+  animation: var(--animation-rotate);
 }
 
 /* ===================
@@ -315,11 +317,13 @@ input[type='submit']:hover::before {
 .todo:hover::before {
   opacity: 1;
   transform: translate(25%, 25%);
+  animation: var(--animation-rotate);
 }
 
 .todo:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 0 30px var(--color-primary);
+  animation: var(--animation-float);
 }
 
 .todo h3, h2 {
@@ -332,6 +336,7 @@ input[type='submit']:hover::before {
 .todo-done {
   text-decoration: line-through;
   color: var(--color-secondary);
+  animation: var(--animation-fade-out);
 }
 
 .todo p {
@@ -381,12 +386,14 @@ input[type='submit']:hover::before {
   opacity: 0.3;
   top: -50%;
   left: -50%;
+  animation: var(--animation-rotate);
 }
 
 .action-btn:hover {
   color: var(--color-hover);
   transform: scale(1.2);
   text-shadow: 0 0 10px var(--color-hover);
+  animation: var(--animation-shake);
 }
 
 .action-btn:active {
@@ -510,7 +517,7 @@ input[type='submit']:hover::before {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(5px);
   }
   to {
     opacity: 1;
@@ -526,6 +533,66 @@ input[type='submit']:hover::before {
   to {
     opacity: 0;
     transform: translateY(20px);
+  }
+}
+
+@keyframes pulse01 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse02 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
   }
 }
 
