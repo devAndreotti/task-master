@@ -13,6 +13,16 @@
   --color-accent: #8000ff;
   --color-active: #ff00ff;
 
+  /* Cores do tema claro */
+  --color-primary-light: #8000ff;
+  --color-secondary-light: #ff1a8c;
+  --color-background-light: #c5c5d3;
+  --color-text-light: #1a1a2e;
+  --color-card-bg-light: #ffffff;
+  --color-hover-light: #b366ff;
+  --color-accent-light: #cc00ff;
+  --color-active-light: #ff00cc;
+
   /* Cores de sombra e transparência */
   --color-shadow: rgba(166, 77, 255, 0.3);
   --color-overlay-light: rgba(255, 255, 255, 0.1);
@@ -166,6 +176,8 @@ code {
   text-shadow: 2px 2px var(--color-secondary);
   animation: var(--animation-glow);
   position: relative;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 /* ===================
@@ -344,6 +356,7 @@ input[type='submit']:hover::before {
   font-size: 1em;
   transition: var(--transition-fast);
   margin-bottom: 0.5em;
+  text-align: justify;
 }
 
 /* ===================
@@ -402,9 +415,21 @@ input[type='submit']:hover::before {
   text-shadow: 0 0 15px var(--color-active);
 }
 
-.completed {
-  opacity: 0.6;
-  transition: var(--transition-fast);
+.completed::after {
+  content: '✓';
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  transform: translateY(-50%);
+  font-size: 15em;
+  color: var(--color-accent);
+  opacity: 0.1;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  text-shadow: 0 0 5px var(--color-accent);
+}
+
+.completed:hover::after {
+  opacity: 0.5;
 }
 
 /* ===================
@@ -469,7 +494,12 @@ input[type='submit']:hover::before {
 @media (max-width: 400px) {
   .App.gamer-theme {
     width: 100%;
-    margin: 1em auto;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .todo-header {
+    border-radius: 0;
   }
 
   .todo-header h1 {
@@ -479,6 +509,18 @@ input[type='submit']:hover::before {
   .form-todo,
   .list-todo {
     padding: 1em;
+  }
+
+  .form-todo {
+    width: 100%;
+  }
+
+  .form-control input {
+    width: 100%;
+  }
+
+  input[type='submit'] {
+    width: 100%;
   }
 
   .actions {
