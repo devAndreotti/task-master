@@ -124,7 +124,6 @@ code {
   border-radius: 20px;
   box-shadow: var(--shadow-normal);
   overflow: hidden;
-  backdrop-filter: blur(12px);
   padding: 1.5em;
   transition: var(--transition-fast);
   animation: var(--animation-fade-in);
@@ -416,6 +415,7 @@ input[type='submit']:hover::before {
 }
 
 .completed::after {
+  z-index: -1000;
   content: '✓';
   position: absolute;
   top: 45%;
@@ -423,7 +423,7 @@ input[type='submit']:hover::before {
   transform: translateY(-50%);
   font-size: 15em;
   color: var(--color-accent);
-  opacity: 0.1;
+  opacity: 0.3;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
   text-shadow: 0 0 5px var(--color-accent);
 }
