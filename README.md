@@ -56,13 +56,6 @@ task-master/                            # Diretório raiz do projeto
 
 ```
 
-## 🛠 Tecnologias Utilizadas
-* **React (Create React App)**
-* **JavaScript (ES6+)**
-* **CSS3**
-* **json-server**
-* **React Icons**
-
 ## 🕹️ Como Executar o Projeto
 1. **Clone o repositório:**
 
@@ -88,6 +81,13 @@ task-master/                            # Diretório raiz do projeto
    ```bash
    npm start
    ```
+
+## 🛠 Tecnologias Utilizadas
+* **React (Create React App)**
+* **JavaScript (ES6+)**
+* **CSS3**
+* **json-server**
+* **React Icons**
 
 ## 💪 Como Contribuir
 1. Faça um **fork** do repositório.
